@@ -1,0 +1,9 @@
+# Fixtures for User
+#
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+abe:
+  email: abe@pres.com
+
+george:
+  email: george@pres.com
