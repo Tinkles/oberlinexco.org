@@ -33,6 +33,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
+      ## Oberlin custom stuff
+      t.string  :last_name,  :null => false, :default => ""
+      t.string  :first_name, :null => false, :default => ""
+      t.integer :t_number,   :null => false
 
       t.timestamps
     end

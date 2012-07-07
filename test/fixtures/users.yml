@@ -4,6 +4,12 @@
 
 abe:
   email: abe@pres.com
+  last_name: Lincoln
+  first_name: Abe
+  t_number: 1
 
 george:
   email: george@pres.com
+  last_name: George
+  first_name: Washington
+  t_number: 2
