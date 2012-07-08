@@ -39,3 +39,12 @@ gem 'jquery-rails'
 
 # Use Devise for user management
 gem 'devise'
+
+# Use Shoulda for serving
+gem 'shoulda'
+
+# Use Thin for serving
+gem 'thin'
+
+# Use Haml for markup
+gem 'haml'
