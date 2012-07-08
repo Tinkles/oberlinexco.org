@@ -48,3 +48,6 @@ gem 'thin'
 
 # Use Haml for markup
 gem 'haml'
+
+# Use Bootstrap for Javascript
+gem 'twitter-bootstrap-rails'
