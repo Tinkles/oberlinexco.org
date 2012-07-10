@@ -1,0 +1,54 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+        %title= content_for?(:title) ? yield(:title) : "OberlinexcoOrg"
+        = csrf_meta_tags
+        / Le HTML5 shim, for IE6-8 support of HTML elements
+        /[if lt IE 9]
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        = stylesheet_link_tag "application", :media => "all"
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} OberlinexcoOrg
+          .container.nav-collapse
+            %ul.nav
+              %li= link_to "Link1", "/path1"
+              %li= link_to "Link2", "/path2"
+              %li= link_to "Link3", "/path3"
+          / /.nav-collapse
+    .messages
+      = render "layouts/messages"
+    / /messages
+    .container
+      .content
+        .row
+          .span9
+            = yield
+          .span3
+            .well.sidebar-nav
+              %h3 Sidebar
+              %ul.nav.nav-list
+                %li.nav-header Sidebar
+                %li= link_to "Link1", "/path1"
+                %li= link_to "Link2", "/path2"
+                %li= link_to "Link3", "/path3"
+            / /.well
+          / /span
+        / /row
+      / /content
+      %footer
+        %p © Company 2012
+    / /container
+    /
+      Javascripts
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    = javascript_include_tag "application"
