@@ -1,0 +1,2 @@
+module ExcosHelper
+end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @exco.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @exco.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_exco_path(@exco) %> |
+<%= link_to 'Back', excos_path %>

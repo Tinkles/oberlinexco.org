@@ -1,0 +1,25 @@
+<h1>Listing excos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @excos.each do |exco| %>
+  <tr>
+    <td><%= exco.name %></td>
+    <td><%= exco.description %></td>
+    <td><%= link_to 'Show', exco %></td>
+    <td><%= link_to 'Edit', edit_exco_path(exco) %></td>
+    <td><%= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exco', new_exco_path %>
