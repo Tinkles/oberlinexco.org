@@ -3,6 +3,7 @@ class CreateExcos < ActiveRecord::Migration
     create_table :excos do |t|
 
       t.string :name
+      t.integer :course_number
       t.text :description
       t.integer :enrollment_limit
 

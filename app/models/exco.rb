@@ -1,6 +1,6 @@
 class Exco < ActiveRecord::Base
 
-  attr_accessible :description, :name, :enrollment_limit, :year, :term
+  attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
 
   validate :term_is_valid
 
