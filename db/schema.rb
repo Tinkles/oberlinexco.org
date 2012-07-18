@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120707144437) do
+ActiveRecord::Schema.define(:version => 20120717034150) do
+
+  create_table "excos", :force => true do |t|
+    t.string   "name"
+    t.integer  "course_number"
+    t.text     "description"
+    t.integer  "enrollment_limit"
+    t.integer  "year"
+    t.string   "term"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
