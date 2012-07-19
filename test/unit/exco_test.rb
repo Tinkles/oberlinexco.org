@@ -52,6 +52,26 @@ class ExcoTest < ActiveSupport::TestCase
       end
     end
 
+    context "an exco with a 0 enrollment_limit" do
+      setup do
+        @aikido_exco.enrollment_limit = 0
+      end
+      should "be invalid and have an error in the enrollment_limit field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:enrollment_limit].any?
+      end
+    end
+
+    context "an exco with a -1 enrollment_limit" do
+      setup do
+        @aikido_exco.enrollment_limit = -1
+      end
+      should "be invalid and have an error in the enrollment_limit field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:enrollment_limit].any?
+      end
+    end
+
     context "an exco with the same name, year, and term" do
       setup do
         @aikido_exco.name = excos(:sexco).name
