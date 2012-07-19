@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyText
+sexco:
+  name: "SexCo"
+  course_number: 69
+  description: "Learn all about sex, sex workers, STIs and STDs... and whatever else."
+  enrollment_limit: 16
+  year: 2012
+  term: "Spring"
 
-two:
-  name: MyString
-  description: MyText
+steel_drum:
+  name: "Steel Drum ExCo"
+  course_number: 70
+  description: "Learn to play steel drums!"
+  enrollment_limit: 12
+  year: 2012
+  term: "Fall"
