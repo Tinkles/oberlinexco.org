@@ -52,9 +52,23 @@ class ExcoTest < ActiveSupport::TestCase
       end
     end
 
-    context "an exco with the same course_number" do
+    context "an exco with the same name, year, and term" do
       setup do
-        @aikido_exco.course_number = 69
+        @aikido_exco.name = excos(:sexco).name
+        @aikido_exco.year = excos(:sexco).year
+        @aikido_exco.term = excos(:sexco).term
+      end
+      should "fail and have errors in name field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:name].any?
+      end
+    end
+
+    context "an exco with the same course_number, year, and term" do
+      setup do
+        @aikido_exco.course_number = excos(:sexco).course_number
+        @aikido_exco.year = excos(:sexco).year
+        @aikido_exco.term = excos(:sexco).term
       end
       should "fail and have errors in course_number field" do
         assert @aikido_exco.invalid?
