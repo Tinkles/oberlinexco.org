@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :last_name, :first_name, :t_number
 
   # Validations
   validates_uniqueness_of :email, :t_number
+  validates_presence_of :email, :last_name, :first_name, :t_number
 
 end
