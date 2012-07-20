@@ -24,9 +24,9 @@
           %a.brand{:href => "#"} Oberlin ExCo
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
+              %li= link_to "Log in", "/path1"
+              %li= link_to "Log out", "/path2"
+              %li= link_to "Account details", "/path3"
           / /.nav-collapse
     .messages
       = render "layouts/messages"
@@ -38,18 +38,17 @@
             = yield
           .span3
             .well.sidebar-nav
-              %h3 Sidebar
+              %h3 Navigation
               %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link1", "/path1"
-                %li= link_to "Link2", "/path2"
-                %li= link_to "Link3", "/path3"
+                %li= link_to "Current ExCos", "/current"
+                %li= link_to "All ExCos", "/excos"
+                %li= link_to "ExCo Committee", "/path3"
             / /.well
           / /span
         / /row
       / /content
       %footer
-        %p © Company 2012
+        %p © Who is the copywrite holder of this? 
     / /container
     /
       Javascripts
