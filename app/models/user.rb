@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :last_name, :first_name, :t_number
 
   # Validations
-  validates_presence_of :email, :last_name, :first_name, :t_number
+  validates_presence_of :last_name, :first_name, :t_number
+  # devise validates_presence_of :email
   validates_uniqueness_of :email, :t_number
   # gem 'validates_email_format_of'
   validates_email_format_of :email
