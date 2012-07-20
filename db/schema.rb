@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20120717034150) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "last_name",              :default => "", :null => false
-    t.string   "first_name",             :default => "", :null => false
-    t.integer  "t_number",                               :null => false
+    t.string   "last_name",                              :null => false
+    t.string   "first_name",                             :null => false
+    t.string   "t_number",                               :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
