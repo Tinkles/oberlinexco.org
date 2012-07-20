@@ -40,6 +40,9 @@ gem 'jquery-rails'
 # Use Devise for user management
 gem 'devise'
 
+# Use for email validations
+gem 'validates_email_format_of', :git => 'git://github.com/alexdunae/validates_email_format_of.git'
+
 # Use Shoulda for serving
 gem 'shoulda'
 

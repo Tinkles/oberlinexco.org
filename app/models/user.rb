@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   # Validations
   validates_uniqueness_of :email, :t_number
   validates_presence_of :email, :last_name, :first_name, :t_number
+  # gem 'validates_email_format_of'
+  validates_email_format_of :email
 
 end
