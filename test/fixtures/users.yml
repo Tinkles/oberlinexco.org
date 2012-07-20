@@ -3,13 +3,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 abe:
-  email: abe@pres.com
-  last_name: Lincoln
-  first_name: Abe
-  t_number: 1
+  email: "abe@pres.com"
+  last_name: "Lincoln"
+  first_name: "Abe"
+  t_number: "T00000000"
 
 george:
-  email: george@pres.com
-  last_name: George
-  first_name: Washington
-  t_number: 2
+  email: "george@pres.com"
+  last_name: "George"
+  first_name: "Washington"
+  t_number: "T00000001"
