@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExcosControllerTest < ActionController::TestCase
   setup do
-    @exco = excos(:one)
+    @sexco = excos(:sexco)
   end
 
   test "should get index" do
@@ -18,30 +18,29 @@ class ExcosControllerTest < ActionController::TestCase
 
   test "should create exco" do
     assert_difference('Exco.count') do
-      post :create, exco: { description: @exco.description, name: @exco.name }
+      post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
     end
-
     assert_redirected_to exco_path(assigns(:exco))
   end
 
   test "should show exco" do
-    get :show, id: @exco
+    get :show, id: @sexco
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @exco
+    get :edit, id: @sexco
     assert_response :success
   end
 
   test "should update exco" do
-    put :update, id: @exco, exco: { description: @exco.description, name: @exco.name }
+    put :update, id: @sexco, sexco: { description: @sexco.description, name: @sexco.name }
     assert_redirected_to exco_path(assigns(:exco))
   end
 
   test "should destroy exco" do
     assert_difference('Exco.count', -1) do
-      delete :destroy, id: @exco
+      delete :destroy, id: @sexco
     end
 
     assert_redirected_to excos_path
