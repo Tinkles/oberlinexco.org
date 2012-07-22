@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :last_name, :first_name, :t_number
 
+  has_and_belongs_to_many :excos_instructing, class_name: 'Exco', join_table: 'excos_instructors'
+  attr_accessible :excos_instructing
+
   # Validations
   validates_presence_of :last_name, :first_name, :t_number
   # devise validates_presence_of :email
@@ -20,4 +23,17 @@ class User < ActiveRecord::Base
   def format_of_t_number
     errors.add(:t_number, "is not valid (note that it must include the 'T')") unless self.t_number =~ T_NUMBER_FORMAT
   end
+
+  def name
+    name_first_last
+  end
+
+  def name_last_first
+    "#{last_name}, #{first_name}"
+  end
+
+  def name_first_last
+    "#{first_name} #{last_name}"
+  end
+
 end

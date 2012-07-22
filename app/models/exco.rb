@@ -2,9 +2,12 @@ class Exco < ActiveRecord::Base
 
   attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
 
+  has_and_belongs_to_many :instructors, class_name: 'User', join_table: 'excos_instructors'
+  attr_accessible :instructors
+
   TERMS = ['Fall', 'Spring']
 
-  validates_presence_of :name, :course_number, :enrollment_limit, :year, :term
+  validates_presence_of :name, :course_number, :enrollment_limit, :year, :term, :instructors
   validate :term_is_valid
   validate :name_is_unique_on_year_and_term
   validate :course_number_is_unique_on_year_and_term
