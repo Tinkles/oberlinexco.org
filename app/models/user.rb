@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
 
   T_NUMBER_FORMAT = /T\d{8}/
   def format_of_t_number
-#   errors.add(:t_number, "is not valid (note that it must include the 'T')") unless self.t_number =~ T_NUMBER_FORMAT
+    errors.add(:t_number, "is not valid (note that it must include the 'T')") unless self.t_number =~ T_NUMBER_FORMAT
   end
 end
