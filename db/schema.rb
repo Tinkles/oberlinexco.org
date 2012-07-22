@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120717034150) do
+ActiveRecord::Schema.define(:version => 20120722213503) do
 
   create_table "excos", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20120717034150) do
     t.string   "term"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "excos_instructors", :id => false, :force => true do |t|
+    t.integer "exco_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -40,8 +45,12 @@ ActiveRecord::Schema.define(:version => 20120717034150) do
     t.string   "t_number",                               :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
