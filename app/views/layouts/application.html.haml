@@ -21,12 +21,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "#"} Oberlin ExCo
+            = link_to "Oberlin ExCo", root_path, :class => 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Log in", "/path1"
-              %li= link_to "Log out", "/path2"
-              %li= link_to "Account details", "/path3"
+              -if user_signed_in?
+                %li= link_to "Log out", destroy_user_session_path, :method => :delete
+                %li= link_to "Edit registration", edit_user_registration_path
+              -else
+                %li= link_to "Log In", new_user_session_path
+                %li= link_to "Register", new_user_registration_path
           / /.nav-collapse
     .messages
       = render "layouts/messages"
