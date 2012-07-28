@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :excos_instructing, class_name: 'Exco', join_table: 'excos_instructors'
   attr_accessible :excos_instructing
 
+  T_NUMBER_FORMAT = /T\d{8}/
+
   # Validations
   validates_presence_of :last_name, :first_name, :t_number
   # devise validates_presence_of :email
@@ -18,8 +20,6 @@ class User < ActiveRecord::Base
   # gem 'validates_email_format_of'
   validates_email_format_of :email
   validates_format_of :t_number, :with => T_NUMBER_FORMAT
-
-  T_NUMBER_FORMAT = /T\d{8}/
 
   def name
     name_first_last
