@@ -7,6 +7,7 @@ sexco:
   enrollment_limit: 16
   year: 2012
   term: "Spring"
+  instructors: abe, mary
 
 steel_drum:
   name: "Steel Drum ExCo"
@@ -15,3 +16,4 @@ steel_drum:
   enrollment_limit: 12
   year: 2012
   term: "Fall"
+  instructors: george

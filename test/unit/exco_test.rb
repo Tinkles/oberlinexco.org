@@ -10,7 +10,8 @@ class ExcoTest < ActiveSupport::TestCase
                               description: "Learn aikido.",
                               enrollment_limit: 16,
                               year: 2012,
-                              term: "Spring")
+                              term: "Spring",
+                              instructors: [users(:george), users(:abe)])
     end
 
     context "a valid exco" do
@@ -22,6 +23,15 @@ class ExcoTest < ActiveSupport::TestCase
     context "an exco with an empty description" do
       setup do
         @aikido_exco.description = nil
+      end
+      should "be valid" do
+        assert @aikido_exco.valid?
+      end
+    end
+
+    context "an exco with no instructors" do
+      setup do
+        @aikido_exco.description = []
       end
       should "be valid" do
         assert @aikido_exco.valid?
@@ -93,6 +103,26 @@ class ExcoTest < ActiveSupport::TestCase
       should "fail and have errors in course_number field" do
         assert @aikido_exco.invalid?
         assert @aikido_exco.errors[:course_number].any?
+      end
+    end
+
+    context "an exco with nonexistent instructors" do
+      setup do
+        @aikido_exco.instructors = [User.new]
+      end
+      should "fail and have errors in instructors field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:instructors].any?
+      end
+    end
+
+    context "an exco given invalid t_numbers" do
+      setup do
+        @aikido_exco.instructors_attributes = {"0"=>{"t_number"=>"T0", "_destroy"=>"false"}}
+      end
+      should "fail and have errors in instructors field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:instructors].any?
       end
     end
 

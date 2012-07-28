@@ -17,23 +17,20 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :t_number
   # gem 'validates_email_format_of'
   validates_email_format_of :email
-  validate :format_of_t_number
+  validates_format_of :t_number, :with => T_NUMBER_FORMAT
 
   T_NUMBER_FORMAT = /T\d{8}/
-  def format_of_t_number
-    errors.add(:t_number, "is not valid (note that it must include the 'T')") unless self.t_number =~ T_NUMBER_FORMAT
-  end
 
   def name
     name_first_last
   end
 
-  def name_last_first
-    "#{last_name}, #{first_name}"
-  end
-
   def name_first_last
     "#{first_name} #{last_name}"
+  end
+
+  def name_last_first
+    "#{last_name}, #{first_name}"
   end
 
 end

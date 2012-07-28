@@ -3,15 +3,16 @@ class Exco < ActiveRecord::Base
   attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
 
   has_and_belongs_to_many :instructors, class_name: 'User', join_table: 'excos_instructors'
-  attr_accessible :instructors
+  attr_accessible :instructors, :instructors_attributes
 
   TERMS = ['Fall', 'Spring']
 
-  validates_presence_of :name, :course_number, :enrollment_limit, :year, :term, :instructors
+  validates_presence_of :name, :course_number, :enrollment_limit, :year, :term
   validate :term_is_valid
   validate :name_is_unique_on_year_and_term
   validate :course_number_is_unique_on_year_and_term
   validate :enrollment_limit_is_positive
+  validates_associated :instructors, message: "are invalid"
 
   def term_is_valid
     errors.add(:term, 'is not valid') unless TERMS.include? self.term
@@ -36,6 +37,24 @@ class Exco < ActiveRecord::Base
   def enrollment_limit_is_positive
     if self.enrollment_limit
       errors.add(:enrollment_limit, 'must be positive') unless self.enrollment_limit > 0
+    end
+  end
+
+  # Ties this record to specified users as instructors.
+  # Takes a hash of the form:
+  #
+  #   {"0"=>{"t_number"=>"T00000001", "_destroy"=>"false"},
+  #    "1"=>{"t_number"=>"T12345678", "_destroy"=>"false"},
+  #    "2"=>{"t_number"=>"", "_destroy"=>"1"}}
+  #
+  # If there is no user with the given t_number, we initialize dummy objects that
+  # hold the value but are not saved in the database and thus are invalid
+  #
+  # This was built for creating Excos with instructors (see /app/views/excos/_form).
+  def instructors_attributes=(attributes)
+    self.instructors = []
+    attributes.each do |i, instructor|
+      self.instructors << User.find_or_initialize_by_t_number(instructor["t_number"]) unless instructor["_destroy"] == "1"
     end
   end
 

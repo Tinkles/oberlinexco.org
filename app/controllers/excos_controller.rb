@@ -25,6 +25,7 @@ class ExcosController < ApplicationController
   # GET /excos/new.json
   def new
     @exco = Exco.new
+    @exco.instructors.build
 
     respond_to do |format|
       format.html # new.html.erb

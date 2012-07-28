@@ -9,6 +9,15 @@
 </p>
 
 <p>
+  <b>Instructors:</b>
+  <ul>
+    <% @exco.instructors.each do |i| %>
+      <li><%= i.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @exco.description %>
 </p>
