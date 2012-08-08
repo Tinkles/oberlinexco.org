@@ -10,6 +10,17 @@ class ExcosController < ApplicationController
     end
   end
 
+  # GET /excos/admin
+  # GET /excos/admin.json
+  def admin
+    @excos = Exco.all
+
+    respond_to do |format|
+      format.html # admin.html.erb
+      format.json { render json: @excos }
+    end
+  end
+
   # GET /excos/1
   # GET /excos/1.json
   def show

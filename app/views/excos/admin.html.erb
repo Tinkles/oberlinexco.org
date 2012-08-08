@@ -9,6 +9,8 @@
     <th>Year</th>
     <th>Term</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @excos.each do |exco| %>
@@ -20,6 +22,12 @@
     <td><%= exco.year %></td>
     <td><%= exco.term %></td>
     <td><%= link_to 'Show', exco %></td>
+    <td><%= link_to 'Edit', edit_exco_path(exco) %></td>
+    <td><%= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
+
+<br />
+
+<%= link_to 'New Exco', new_exco_path %>
