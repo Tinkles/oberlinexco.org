@@ -1,6 +1,9 @@
 OberlinexcoOrg::Application.routes.draw do
   resources :excos do
-    get 'admin', :on => :collection
+    collection do
+      get 'current'
+      get 'all'
+    end
   end
 
   devise_for :users
