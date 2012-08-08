@@ -128,4 +128,14 @@ class ExcoTest < ActiveSupport::TestCase
 
   end
 
+  context "getting" do
+
+    context "current excos" do
+      should "return current excos" do
+        assert Exco.current == Exco.where(:year => Date.today.year, :term => (Date.today.month > 5 ? 'Fall' : 'Spring')).order(:course_number)
+      end
+    end
+
+  end
+
 end

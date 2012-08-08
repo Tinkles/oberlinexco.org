@@ -1,8 +1,8 @@
 OberlinexcoOrg::Application.routes.draw do
   resources :excos do
     collection do
-      get 'current'
       get 'all'
+      get 'admin'
     end
   end
 

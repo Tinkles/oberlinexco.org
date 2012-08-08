@@ -40,16 +40,11 @@ class Exco < ActiveRecord::Base
     end
   end
 
+  # Returns the current excos.
+  #
+  # The cutoff month for Fall to Spring semesters is 1 January, and for Spring to Fall is 1 June
   def self.current
-    Exco.where{(year == Exco.current_year) & (term == Exco.current_term)}
-  end
-
-  def self.current_year
-    Date.today.year
-  end
-
-  def self.current_term
-    Date.today.month > 5 ? 'Fall' : 'Spring'
+    Exco.where(:year => Date.today.year, :term => (Date.today.month > 5 ? 'Fall' : 'Spring')).order(:course_number)
   end
 
   # Ties this record to specified users as instructors.
