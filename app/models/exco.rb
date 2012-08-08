@@ -40,6 +40,18 @@ class Exco < ActiveRecord::Base
     end
   end
 
+  def self.current
+    Exco.where{(year == Exco.current_year) & (term == Exco.current_term)}
+  end
+
+  def self.current_year
+    Date.today.year
+  end
+
+  def self.current_term
+    Date.today.month > 5 ? 'Fall' : 'Spring'
+  end
+
   # Ties this record to specified users as instructors.
   # Takes a hash of the form:
   #

@@ -2,7 +2,7 @@ class ExcosController < ApplicationController
   # GET /excos
   # GET /excos.json
   def index
-    @excos = Exco.all # TODO this should be constrained to the current semester
+    @excos = Exco.current
 
     respond_to do |format|
       format.html # index.html.erb
