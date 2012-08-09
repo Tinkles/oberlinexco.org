@@ -1,0 +1,26 @@
+%p
+  %b Name:
+  = @exco.name
+%p
+  %b Course Number:
+  = @exco.course_number
+%p
+  %b Instructors:
+  %ul
+    - @exco.instructors.each do |i|
+      %li= i.name
+%p
+  %b Description:
+  = @exco.description
+%p
+  %b Enrollment Limit:
+  = @exco.enrollment_limit
+%p
+  %b Year:
+  = @exco.year
+%p
+  %b Term:
+  = @exco.term
+= link_to 'Edit', edit_exco_path(@exco)
+|
+= link_to 'Back', excos_path

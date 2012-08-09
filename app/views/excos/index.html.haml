@@ -1,0 +1,19 @@
+%h1 Listing excos
+%table
+  %tr
+    %th Name
+    %th Course Number
+    %th Description
+    %th Enrollment Limit
+    %th Year
+    %th Term
+    %th
+  - @excos.each do |exco|
+    %tr
+      %td= exco.name
+      %td= exco.course_number
+      %td= exco.description
+      %td= exco.enrollment_limit
+      %td= exco.year
+      %td= exco.term
+      %td= link_to 'Show', exco
