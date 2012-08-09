@@ -11,6 +11,14 @@ class ExcosControllerTest < ActionController::TestCase
     assert_not_nil assigns(:excos)
   end
 
+  test "should get all" do
+    # TODO
+  end
+
+  test "should get admin" do
+    # TODO
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -20,7 +28,7 @@ class ExcosControllerTest < ActionController::TestCase
     assert_difference('Exco.count') do
       post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
     end
-    assert_redirected_to exco_path(assigns(:exco))
+    assert_redirected_to admin_excos_path
   end
 
   test "should show exco" do
