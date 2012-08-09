@@ -40,6 +40,7 @@ gem 'jquery-rails'
 
 # Use Devise for user management
 gem 'devise'
+gem 'cancan'
 
 # Use Squeel for better queries
 gem 'squeel'
