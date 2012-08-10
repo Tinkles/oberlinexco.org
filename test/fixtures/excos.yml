@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-steel_drum:
+steel_drum_2011_spring:
   name: "Steel Drum ExCo"
   course_number: 70
   description: "Learn to play steel drums!"

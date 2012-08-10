@@ -1,56 +1,83 @@
 require 'test_helper'
 
 class ExcosControllerTest < ActionController::TestCase
+
   setup do
-    @sexco = excos(:sexco)
+    @exco = excos(:steel_drum)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:excos)
-  end
+  context "an admin user" do
 
-  test "should get all" do
-    # TODO
-  end
-
-  test "should get admin" do
-    # TODO
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create exco" do
-    assert_difference('Exco.count') do
-      post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
-    end
-    assert_redirected_to admin_excos_path
-  end
-
-  test "should show exco" do
-    get :show, id: @sexco
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @sexco
-    assert_response :success
-  end
-
-  test "should update exco" do
-    put :update, id: @sexco, sexco: { description: @sexco.description, name: @sexco.name }
-    assert_redirected_to exco_path(assigns(:exco))
-  end
-
-  test "should destroy exco" do
-    assert_difference('Exco.count', -1) do
-      delete :destroy, id: @sexco
+    setup do
+      user = users(:exco)
+      sign_in user
     end
 
-    assert_redirected_to excos_path
+    #GETs
+    context "getting" do
+      context "the excos index page" do
+        should "succeed" do
+          get :index
+          assert_response :success
+          assert_not_nil assigns(:excos)
+        end
+      end
+      context "the all excos page" do
+        should "succeed" do
+          get :all
+          assert_response :success
+          assert_not_nil assigns(:excos)
+        end
+      end
+      context "an exco's page" do
+        should "succeed" do
+          get :show, id: @exco
+          assert_response :success
+        end
+      end
+      context "the admin excos page" do
+        should "succeed" do
+          get :admin
+          assert_response :success
+        end
+      end
+      context "the new exco page" do
+        should "succeed" do
+          get :new
+          assert_response :success
+        end
+      end
+      context "an edit exco page" do
+        should "succeed" do
+          get :edit, id: @exco
+          assert_response :success
+        end
+      end
+    end
+
+    # CUD
+    context "creating an exco" do
+      should "succeed" do
+        assert_difference('Exco.count') do
+          post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
+        end
+        assert_redirected_to admin_excos_path
+      end
+    end
+    context "updating an exco" do
+      should "succeed" do
+        put :update, id: @exco, exco: { description: @exco.description, name: @exco.name }
+        assert_redirected_to admin_excos_path
+      end
+    end
+    context "destroying an exco" do
+      should "succeed" do
+        assert_difference('Exco.count', -1) do
+          delete :destroy, id: @exco
+        end
+        assert_redirected_to admin_excos_path
+      end
+    end
   end
+
 end
