@@ -6,19 +6,26 @@ abe:
   email: "abe@pres.com"
   last_name: "Lincoln"
   first_name: "Abe"
-  t_number: "T00000000"
+  t_number: "T00000001"
   excos_instructing: sexco
 
 mary:
   email: "mary@pres.com"
   last_name: "Todd"
   first_name: "Mary"
-  t_number: "T00000001"
+  t_number: "T00000002"
   excos_instructing: sexco
 
 george:
   email: "george@pres.com"
   last_name: "George"
   first_name: "Washington"
-  t_number: "T00000002"
+  t_number: "T00000003"
   excos_instructing: steel_drum
+
+exco:
+  email: "exco@oberlin.edu"
+  last_name: "Committee"
+  first_name: "ExCo"
+  t_number: "T00000000"
+  admin: true
