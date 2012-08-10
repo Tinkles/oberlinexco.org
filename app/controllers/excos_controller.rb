@@ -16,18 +16,7 @@ class ExcosController < ApplicationController
     @excos = Exco.all
 
     respond_to do |format|
-      format.html # all.html.erb
-      format.json { render json: @excos }
-    end
-  end
-
-  # GET /excos/admin
-  # GET /excos/admin.json
-  def admin
-    @excos = Exco.all
-
-    respond_to do |format|
-      format.html # admin.html.erb
+      format.html { render :index } # index.html.erb
       format.json { render json: @excos }
     end
   end
@@ -40,6 +29,17 @@ class ExcosController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @exco }
+    end
+  end
+
+  # GET /excos/admin
+  # GET /excos/admin.json
+  def admin
+    @excos = Exco.all
+
+    respond_to do |format|
+      format.html # admin.html.erb
+      format.json { render json: @excos }
     end
   end
 
