@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
+  def admin?
+    admin
+  end
+
 end
