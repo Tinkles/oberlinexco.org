@@ -7,6 +7,7 @@ abe:
   last_name: "Lincoln"
   first_name: "Abe"
   t_number: "T00000001"
+  confirmed_at: <%= Time.now %>
   excos_instructing: sexco
 
 mary:
@@ -14,6 +15,7 @@ mary:
   last_name: "Todd"
   first_name: "Mary"
   t_number: "T00000002"
+  confirmed_at: <%= Time.now %>
   excos_instructing: sexco
 
 george:
@@ -21,6 +23,7 @@ george:
   last_name: "George"
   first_name: "Washington"
   t_number: "T00000003"
+  confirmed_at: <%= Time.now %>
   excos_instructing: steel_drum
 
 exco:
@@ -28,4 +31,5 @@ exco:
   last_name: "Committee"
   first_name: "ExCo"
   t_number: "T00000000"
+  confirmed_at: <%= Time.now %>
   admin: true

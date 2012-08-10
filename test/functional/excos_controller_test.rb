@@ -6,13 +6,90 @@ class ExcosControllerTest < ActionController::TestCase
     @exco = excos(:steel_drum)
   end
 
+  context "a non-admin user" do
+
+    setup do
+      sign_in users(:abe)
+    end
+
+    #GETs
+    context "getting" do
+      context "the excos index page" do
+        should "succeed" do
+          get :index
+          assert_response :success
+          assert_not_nil assigns(:excos)
+        end
+      end
+      context "the all excos page" do
+        should "succeed" do
+          get :all
+          assert_response :success
+          assert_not_nil assigns(:excos)
+        end
+      end
+      context "an exco's page" do
+        should "succeed" do
+          get :show, id: @exco
+          assert_response :success
+        end
+      end
+      context "the admin excos page" do
+        should "redirect" do
+          get :admin
+          # TODO where to?
+          assert_response :redirect
+        end
+      end
+      context "the new exco page" do
+        should "redirect" do
+          get :new
+          # TODO where to?
+          assert_response :redirect
+        end
+      end
+      context "an edit exco page" do
+        should "redirect" do
+          get :edit, id: @exco
+          # TODO where to?
+          assert_response :redirect
+        end
+      end
+    end
+
+    # CUD
+    context "creating an exco" do
+      should "fail" do
+        assert_no_difference('Exco.count') do
+          post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
+        end
+        # TODO where to?
+        assert_response :redirect
+      end
+    end
+    context "updating an exco" do
+      should "fail" do
+        put :update, id: @exco, exco: { description: @exco.description, name: @exco.name }
+        # TODO where to?
+        assert_response :redirect
+      end
+    end
+    context "destroying an exco" do
+      should "fail" do
+        assert_no_difference('Exco.count') do
+          delete :destroy, id: @exco
+        end
+        # TODO where to?
+        assert_response :redirect
+      end
+    end
+  end
+
   context "an admin user" do
 
-    # TODO make this work
-    #setup do
-    #  user = users(:exco)
-    #  sign_in user
-    #end
+    setup do
+      sign_in users(:exco)
+    end
 
     #GETs
     context "getting" do
