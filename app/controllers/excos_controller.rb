@@ -67,7 +67,7 @@ class ExcosController < ApplicationController
 
     respond_to do |format|
       if @exco.save
-        format.html { redirect_to admin_excos_path, notice: 'Exco was successfully created.' }
+        format.html { redirect_to @exco, notice: 'Exco was successfully created.' }
         format.json { render json: @exco, status: :created, location: @exco }
       else
         format.html { render action: "new" }
@@ -99,7 +99,7 @@ class ExcosController < ApplicationController
     @exco.destroy
 
     respond_to do |format|
-      format.html { redirect_to excos_url }
+      format.html { redirect_to admin_excos_path }
       format.json { head :no_content }
     end
   end
