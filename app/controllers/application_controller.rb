@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   # enforce checking authorization on every action in the application
-  check_authorization
+  check_authorization unless: :devise_controller?
 
   # catch AccessDenied exceptions and reroute accordingly
   rescue_from CanCan::AccessDenied do |exception|
