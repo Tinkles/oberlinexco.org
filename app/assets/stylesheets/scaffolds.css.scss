@@ -20,8 +20,9 @@ a {
   &:visited {
     color: #666; }
   &:hover {
-    color: #fff;
-    background-color: #000; } }
+    color: #000;
+    text-decoration: underline;
+    background-color: #fff; } }
 
 div {
   &.field, &.actions {
