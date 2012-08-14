@@ -37,22 +37,19 @@ class ExcosControllerTest < ActionController::TestCase
       context "the admin excos page" do
         should "redirect" do
           get :admin
-          # TODO where to?
-          assert_response :redirect
+          assert_redirected_to excos_path
         end
       end
       context "the new exco page" do
         should "redirect" do
           get :new
-          # TODO where to?
-          assert_response :redirect
+          assert_redirected_to excos_path
         end
       end
       context "an edit exco page" do
         should "redirect" do
           get :edit, id: @exco
-          # TODO where to?
-          assert_response :redirect
+          assert_redirected_to excos_path
         end
       end
     end
@@ -63,15 +60,13 @@ class ExcosControllerTest < ActionController::TestCase
         assert_no_difference('Exco.count') do
           post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
         end
-        # TODO where to?
-        assert_response :redirect
+        assert_redirected_to excos_path
       end
     end
     context "updating an exco" do
       should "fail" do
         put :update, id: @exco, exco: { description: @exco.description, name: @exco.name }
-        # TODO where to?
-        assert_response :redirect
+        assert_redirected_to excos_path
       end
     end
     context "destroying an exco" do
@@ -79,8 +74,7 @@ class ExcosControllerTest < ActionController::TestCase
         assert_no_difference('Exco.count') do
           delete :destroy, id: @exco
         end
-        # TODO where to?
-        assert_response :redirect
+        assert_redirected_to excos_path
       end
     end
   end

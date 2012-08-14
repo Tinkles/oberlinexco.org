@@ -1,4 +1,9 @@
 class ExcosController < ApplicationController
+
+  # we check all authorizations in the standard fashion except :all due to namespace collision
+  # we authorize :all in the method itself (see below)
+  load_and_authorize_resource
+
   # GET /excos
   # GET /excos.json
   def index
