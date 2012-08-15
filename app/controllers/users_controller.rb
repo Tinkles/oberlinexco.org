@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-    @user.instructors.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -82,7 +81,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_users_path }
+      format.html { redirect_to users_path }
       format.json { head :no_content }
     end
   end
