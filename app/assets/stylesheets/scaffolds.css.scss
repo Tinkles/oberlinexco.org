@@ -20,9 +20,7 @@ a {
   &:visited {
     color: #666; }
   &:hover {
-    color: #000;
-    text-decoration: underline;
-    background-color: #fff; } }
+    text-decoration: underline; } }
 
 div {
   &.field, &.actions {
