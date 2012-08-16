@@ -38,14 +38,16 @@
     / /.navbar-fixed-top
     .messages
       = render "layouts/messages"
-    .container
-      .content
+    .content
+      .container
         .row
           .span12
             = yield
         / /row
-      / /content
-      %footer
+      / /container
+    / /content
+    %footer
+      .container
         %ul.nav
           -if user_signed_in?
             %li= link_to "Edit account", edit_user_registration_path
@@ -59,7 +61,8 @@
             = link_to "Isaac Hollander McCreery", 'http://cs.oberlin.edu/~ihm'
             and
             Malcolm Balch-Crystal
-    / /container
+      / /container
+    / /footer
     / Javascripts
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
