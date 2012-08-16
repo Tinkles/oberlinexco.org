@@ -24,36 +24,42 @@
             = link_to "Oberlin ExCo", root_path, :class => 'brand'
           .container.nav-collapse
             %ul.nav
+              %li= link_to "Current ExCos", excos_path
+              %li= link_to "All ExCos", all_excos_path
+              -if can? :find, User
+                %li= link_to "Users", users_path
               -if user_signed_in?
+                %li= link_to "Edit account", edit_user_registration_path
                 %li= link_to "Log out", destroy_user_session_path, :method => :delete
-                %li= link_to "Edit registration", edit_user_registration_path
-              -else
-                %li= link_to "Log In", new_user_session_path
-                %li= link_to "Register", new_user_registration_path
-          / /.nav-collapse
+              / this is currently disabled because registration is not enabled ~ihm, 2012-08-16
+              /-else
+              /  %li= link_to "Log In", new_user_session_path
+              /  %li= link_to "Register", new_user_registration_path
+    / /.navbar-fixed-top
     .messages
       = render "layouts/messages"
-    / /messages
     .container
       .content
         .row
-          .span9
+          .span12
             = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Navigation
-              %ul.nav.nav-list
-                %li= link_to "Current ExCos", "/excos"
-                %li= link_to "All ExCos", "/excos/all"
-            / /.well
-          / /span
         / /row
       / /content
       %footer
-        %p © Who is the copywrite holder of this? 
+        %ul.nav
+          -if user_signed_in?
+            %li= link_to "Edit account", edit_user_registration_path
+            %li= link_to "Log out", destroy_user_session_path, :method => :delete
+          -else
+            %li= link_to "Log In", new_user_session_path
+        #credits
+          %p © 2012, Oberlin Experimental College
+          %p
+            Designed and maintained by
+            = link_to "Isaac Hollander McCreery", 'http://cs.oberlin.edu/~ihm'
+            and
+            Malcolm Balch-Crystal
     / /container
-    /
-      Javascripts
-      \==================================================
+    / Javascripts
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
