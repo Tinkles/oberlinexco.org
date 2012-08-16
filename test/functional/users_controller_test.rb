@@ -90,7 +90,7 @@ class UsersControllerTest < ActionController::TestCase
           assert_not_nil assigns(:users)
         end
       end
-      context "an user's page" do
+      context "a user's page" do
         should "succeed" do
           get :show, id: @user
           assert_response :success
@@ -117,7 +117,7 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     # CUD
-    context "creating an user" do
+    context "creating a user" do
       should "succeed" do
         assert_difference('User.count') do
           post :create, user: { email: 'thomas@pres.com', last_name: 'Jefferson' , first_name: 'Thomas', t_number: 'T00000011' }
@@ -125,13 +125,13 @@ class UsersControllerTest < ActionController::TestCase
         assert_redirected_to user_path(assigns(:user))
       end
     end
-    context "updating an user" do
+    context "updating a user" do
       should "succeed" do
         put :update, id: @user, user: { last_name: @user.last_name, t_number: @user.t_number }
         assert_redirected_to user_path(assigns(:user))
       end
     end
-    context "destroying an user" do
+    context "destroying a user" do
       should "succeed" do
         assert_difference('User.count', -1) do
           delete :destroy, id: @user
