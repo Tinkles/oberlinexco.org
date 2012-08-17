@@ -29,7 +29,6 @@
               -if can? :find, User
                 %li= link_to "Users", users_path
               -if user_signed_in?
-                %li= link_to "Edit account", edit_user_registration_path
                 %li= link_to "Log out", destroy_user_session_path, :method => :delete
               / this is currently disabled because registration is not enabled ~ihm, 2012-08-16
               /-else
@@ -40,14 +39,16 @@
       = render "layouts/messages"
     .content
       .container
-        .row
-          #contentbg.span8.offset2.background
-            = yield
-        / /row
+        = yield
       / /container
     / /content
     %footer
-      .container.span8.offset3
+      .container
+        %ul.nav
+          -if user_signed_in?
+            %li= link_to "Log out", destroy_user_session_path, :method => :delete
+          -else
+            %li= link_to "Log In", new_user_session_path
         #credits
           %p © 2012, Oberlin Experimental College
           %p
