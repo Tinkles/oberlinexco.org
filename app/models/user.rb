@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
          :rememberable,
          :trackable,
          :validatable,
-         :timeoutable
-         #:confirmable
+         :timeoutable,
+         :confirmable,
+         :registerable
          #:lockable,
-         #:registerable,
          #:token_authenticatable,
          #:omniauthable
 
