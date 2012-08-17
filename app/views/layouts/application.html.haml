@@ -21,7 +21,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-            = link_to "Oberlin ExCo", root_path, :class => 'brand'
+            = link_to "Home", root_path, :class => 'brand'
           .container.nav-collapse
             %ul.nav
               %li= link_to "Current ExCos", excos_path
@@ -41,19 +41,13 @@
     .content
       .container
         .row
-          .span12
+          #contentbg.span8.offset2.background
             = yield
         / /row
       / /container
     / /content
     %footer
-      .container
-        %ul.nav
-          -if user_signed_in?
-            %li= link_to "Edit account", edit_user_registration_path
-            %li= link_to "Log out", destroy_user_session_path, :method => :delete
-          -else
-            %li= link_to "Log In", new_user_session_path
+      .container.span8.offset3
         #credits
           %p © 2012, Oberlin Experimental College
           %p

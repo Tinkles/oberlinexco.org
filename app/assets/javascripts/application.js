@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require_tree .
 //= require helpers
+//alert(window.innerHeight);
+document.getElementById("contentbg").style.height = (window.innerHeight - 100)+"px";
