@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
          #:token_authenticatable,
          #:omniauthable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :last_name, :first_name, :t_number
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :last_name, :first_name, :t_number, :admin
 
   has_and_belongs_to_many :excos_instructing, class_name: 'Exco', join_table: 'excos_instructors'
   attr_accessible :excos_instructing
@@ -37,10 +37,6 @@ class User < ActiveRecord::Base
 
   def name_last_first
     "#{last_name}, #{first_name}"
-  end
-
-  def admin?
-    admin
   end
 
 end

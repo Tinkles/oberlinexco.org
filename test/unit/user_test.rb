@@ -76,12 +76,12 @@ class UserTest < ActiveSupport::TestCase
   context "a user" do
     context "who is an admin" do
       should "be admin" do
-        assert users(:exco).admin?
+        assert users(:exco).admin
       end
     end
     context "who is not an admin" do
       should "not be admin" do
-        assert !users(:abe).admin?
+        assert !users(:abe).admin
       end
     end
   end
