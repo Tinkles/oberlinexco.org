@@ -50,6 +50,9 @@ gem 'validates_email_format_of', :git => 'http://github.com/alexdunae/validates_
 
 # Use Shoulda for serving
 gem 'shoulda'
+# Use test-unit to improve tests and prevent extra test suite from running
+# see http://stackoverflow.com/questions/2557102/why-is-rake-tests-running-an-empty-suite-when-i-use-shoulda
+gem 'test-unit'
 
 # Use Thin for serving
 gem 'thin'
