@@ -37,17 +37,6 @@ class ExcosController < ApplicationController
     end
   end
 
-  # GET /excos/admin
-  # GET /excos/admin.json
-  def admin
-    @excos = Exco.all
-
-    respond_to do |format|
-      format.html # admin.html.erb
-      format.json { render json: @excos }
-    end
-  end
-
   # GET /excos/new
   # GET /excos/new.json
   def new
@@ -104,7 +93,7 @@ class ExcosController < ApplicationController
     @exco.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_excos_path }
+      format.html { redirect_to excos_path }
       format.json { head :no_content }
     end
   end

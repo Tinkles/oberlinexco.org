@@ -34,12 +34,6 @@ class ExcosControllerTest < ActionController::TestCase
           assert_response :success
         end
       end
-      context "the admin excos page" do
-        should "redirect" do
-          get :admin
-          assert_redirected_to excos_path
-        end
-      end
       context "the new exco page" do
         should "redirect" do
           get :new
@@ -107,12 +101,6 @@ class ExcosControllerTest < ActionController::TestCase
           assert_response :success
         end
       end
-      context "the admin excos page" do
-        should "succeed" do
-          get :admin
-          assert_response :success
-        end
-      end
       context "the new exco page" do
         should "succeed" do
           get :new
@@ -147,7 +135,7 @@ class ExcosControllerTest < ActionController::TestCase
         assert_difference('Exco.count', -1) do
           delete :destroy, id: @exco
         end
-        assert_redirected_to admin_excos_path
+        assert_redirected_to excos_path
       end
     end
   end

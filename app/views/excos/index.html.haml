@@ -8,6 +8,10 @@
     %th Year
     %th Term
     %th
+    -if can? :update, Exco
+      %th
+    -if can? :destroy, Exco
+      %th
   - @excos.each do |exco|
     %tr
       %td= exco.name
@@ -17,3 +21,7 @@
       %td= exco.year
       %td= exco.term
       %td= link_to 'Show', exco
+      -if can? :update, Exco
+        %td= link_to 'Edit', edit_exco_path(exco)
+      -if can? :destroy, Exco
+        %td= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete
