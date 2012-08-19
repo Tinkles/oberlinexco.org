@@ -40,7 +40,12 @@ gem 'jquery-rails'
 
 # Use Devise for user management
 gem 'devise'
+
+# Use CanCan for controller-level security
 gem 'cancan'
+
+# Use Grant for model-level security
+gem 'grant'
 
 # Use Squeel for better queries
 gem 'squeel'
