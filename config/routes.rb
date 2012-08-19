@@ -13,6 +13,7 @@ OberlinexcoOrg::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
+  match 'apply_to_teach' => 'home#apply_to_teach', as: :apply_to_teach
 
   # get "home/index"
 

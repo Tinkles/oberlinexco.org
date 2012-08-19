@@ -4,4 +4,8 @@ class HomeController < ApplicationController
 
   def index
   end
+
+  def apply_to_teach
+  end
+
 end

@@ -26,6 +26,7 @@
             %ul.nav
               %li= link_to "Current ExCos", excos_path
               %li= link_to "All ExCos", all_excos_path
+              %li= link_to "Apply to Teach", apply_to_teach_path
               -if can? :find, User
                 %li= link_to "Users", users_path
             -if user_signed_in?
