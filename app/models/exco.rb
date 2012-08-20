@@ -1,5 +1,8 @@
 class Exco < ActiveRecord::Base
 
+  grant(:find) { true }
+  grant(:create, :update, :destroy) { |user, model| user.admin }
+
   attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
 
   has_and_belongs_to_many :instructors, class_name: 'User', join_table: 'excos_instructors'

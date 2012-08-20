@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  # for Grant
+  before_filter :set_current_user
+
   # enforce checking authorization on every action in the application
   check_authorization unless: :devise_controller?
 
@@ -15,5 +18,13 @@ class ApplicationController < ActionController::Base
     end
 
   end
+
+  private
+
+  # for Grant
+  def set_current_user
+    Grant::User.current_user = @current_user or User.new
+  end 
+
 
 end
