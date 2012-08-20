@@ -9,12 +9,6 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # disable Grant for unit tests
-  def initialize(*args)
-    super
-    Grant::Status.disable_grant
-  end
-
   # Add more helper methods to be used by all tests here...
 end
 
