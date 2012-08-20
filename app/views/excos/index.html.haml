@@ -1,27 +1,14 @@
-%h1 Listing excos
-%table
-  %tr
-    %th Name
-    %th Course Number
-    %th Description
-    %th Enrollment Limit
-    %th Year
-    %th Term
-    %th
-    -if can? :update, Exco
-      %th
-    -if can? :destroy, Exco
-      %th
-  - @excos.each do |exco|
-    %tr
-      %td= exco.name
-      %td= exco.course_number
-      %td= exco.description
-      %td= exco.enrollment_limit
-      %td= exco.year
-      %td= exco.term
-      %td= link_to 'Show', exco
-      -if can? :update, Exco
-        %td= link_to 'Edit', edit_exco_path(exco)
-      -if can? :destroy, Exco
-        %td= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete
+%h1#excos_title ExCos
+
+- @excos.each do |exco|
+  .exco_container
+    .exco_header
+      %a.exco_name= exco.name
+      Course number:
+      %a.exco_header_info= exco.course_number
+      Enrollment limit:
+      %a.exco_header_info= exco.enrollment_limit
+    %p.exco_description= exco.description
+
+
+
