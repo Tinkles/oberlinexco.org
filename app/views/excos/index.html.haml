@@ -8,6 +8,9 @@
       %a.exco_header_info= exco.course_number
       Enrollment limit:
       %a.exco_header_info= exco.enrollment_limit
+      -if user_signed_in?
+        %a= link_to 'Edit', edit_exco_path(exco)
+        %a= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete
     %p.exco_description= exco.description
 
 
