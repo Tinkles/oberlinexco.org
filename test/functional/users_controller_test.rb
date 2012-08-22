@@ -3,9 +3,11 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
 
   setup do
-    @user = users(:george)
-    @self = users(:abe)
-    @admin = users(:exco)
+    without_grant do
+      @user = users(:george)
+      @self = users(:abe)
+      @admin = users(:exco)
+    end
   end
 
   context "a non-admin user" do
@@ -79,7 +81,9 @@ class UsersControllerTest < ActionController::TestCase
   context "an admin user" do
 
     setup do
-      sign_in @admin
+      without_grant do
+        sign_in @admin
+      end
     end
 
     #GETs

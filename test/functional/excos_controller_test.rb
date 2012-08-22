@@ -9,7 +9,9 @@ class ExcosControllerTest < ActionController::TestCase
   context "a non-admin user" do
 
     setup do
-      sign_in users(:abe)
+      without_grant do
+        sign_in users(:abe)
+      end
     end
 
     #GETs
@@ -76,7 +78,9 @@ class ExcosControllerTest < ActionController::TestCase
   context "an admin user" do
 
     setup do
-      sign_in users(:exco)
+      without_grant do
+        sign_in users(:exco)
+      end
     end
 
     #GETs

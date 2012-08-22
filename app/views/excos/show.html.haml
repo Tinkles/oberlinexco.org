@@ -7,8 +7,9 @@
 %p
   %b Instructors:
   %ul
-    - @exco.instructors.each do |i|
-      %li= i.name
+    - without_grant do
+      - @exco.instructors.each do |i|
+        %li= i.name
 %p
   %b Description:
   = @exco.description

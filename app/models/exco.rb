@@ -1,7 +1,7 @@
 class Exco < ActiveRecord::Base
 
   grant(:find) { true }
-  grant(:create, :update, :destroy) { |user, model| user.admin }
+  grant(:create, :update, :destroy) { |user, model| user.nil? or user.admin }
 
   attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
 

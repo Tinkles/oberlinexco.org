@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
-  grant(:find) { |user, model| user.admin or user.id == model.id }
+  grant(:find) { |user, model| user.nil? or user.admin or user.id == model.id }
 
-  grant(:create, :update, :destroy) { |user, model, action| user.admin }
+  grant(:create, :update, :destroy) { |user, model, action| user.nil? or user.admin }
 
   # Include default devise modules
   devise :database_authenticatable,

@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   # for Grant
   def set_current_user
-    Grant::User.current_user = @current_user or User.new
+    Grant::User.current_user = @current_user
   end 
 
 

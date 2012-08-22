@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Grant::Status
 
   # for removing fields in a form
   #
