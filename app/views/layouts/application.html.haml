@@ -21,7 +21,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-            = link_to "Home", root_path, :class => 'brand'
+            = link_to "Oberlin ExCo", root_path, :class => 'brand'
           .container.nav-collapse
             %ul.nav
               %li= link_to "Current ExCos", excos_path
@@ -33,10 +33,10 @@
               %ul.nav
                 %li= link_to "Log out", destroy_user_session_path, :method => :delete
     / /.navbar-fixed-top
-    .messages
-      = render "layouts/messages"
     .content
       .container
+        .messages
+          = render "layouts/messages"
         = yield
       / /container
     / /content

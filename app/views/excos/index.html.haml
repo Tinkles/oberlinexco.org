@@ -1,17 +1,32 @@
-%h1#excos_title ExCos
+.page-header
+  %h1 ExCos
 
-- @excos.each do |exco|
-  .exco_container
-    .exco_header
-      %a.exco_name= exco.name
-      Course number:
-      %a.exco_header_info= exco.course_number
-      Enrollment limit:
-      %a.exco_header_info= exco.enrollment_limit
-      -if user_signed_in?
-        %a= link_to 'Edit', edit_exco_path(exco)
-        %a= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete
-    %p.exco_description= exco.description
+- if can? :create, Exco
+  %p
+    = link_to 'New Exco', new_exco_path, class: 'btn'
 
-
-
+- excos_by_offered = @excos.group_by {|e| e.offered}
+- excos_by_offered.each do |offered, excos|
+  %h2= offered
+  %table.table.table-striped
+    %tr
+      %th Course number
+      %th Name
+      %th Instructor
+      %th Enrollment limit
+      %th
+      - if can? :update, Exco
+        %th
+      - if can? :delete, Exco
+        %th
+    - excos.each do |exco|
+      %tr
+        %td= exco.course_number
+        %td= exco.name
+        %td= exco.instructors.map{|i| i.name}.join(", ")
+        %td= exco.enrollment_limit
+        %td= link_to 'Show', exco
+        - if can? :update, Exco
+          %td= link_to 'Edit', edit_exco_path(exco)
+        - if can? :delete, Exco
+          %td= link_to 'Destroy', exco, confirm: 'Are you sure?', method: :delete

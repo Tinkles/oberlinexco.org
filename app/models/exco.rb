@@ -14,6 +14,9 @@ class Exco < ActiveRecord::Base
   validate :enrollment_limit_is_positive
   validates_associated :instructors, message: "are invalid"
 
+  scope :by_offered, order("year DESC, term ASC")
+  scope :by_course_number, order(:course_number)
+
   def term_is_valid
     errors.add(:term, 'is not valid') unless TERMS.include? self.term
   end
@@ -45,6 +48,11 @@ class Exco < ActiveRecord::Base
   # The cutoff month for Fall to Spring semesters is 1 January, and for Spring to Fall is 1 June
   def self.current
     Exco.where(:year => Date.today.year, :term => (Date.today.month > 5 ? 'Fall' : 'Spring')).order(:course_number)
+  end
+
+  # Returns the formatted string for when this exco was offered.
+  def offered
+    self.term.titleize + " " + self.year.to_s
   end
 
   # Ties this record to specified users as instructors.

@@ -7,10 +7,10 @@ class ExcosController < ApplicationController
   # GET /excos
   # GET /excos.json
   def index
-    @excos = Exco.current
+    @excos = Exco.current.by_course_number
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @excos }
     end
   end
@@ -18,10 +18,10 @@ class ExcosController < ApplicationController
   # GET /excos/all
   # GET /excos/all.json
   def all
-    @excos = Exco.all
+    @excos = Exco.by_offered.by_course_number
 
     respond_to do |format|
-      format.html { render :index } # index.html.erb
+      format.html { render :index } # index.html.haml
       format.json { render json: @excos }
     end
   end
@@ -32,7 +32,7 @@ class ExcosController < ApplicationController
     @exco = Exco.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @exco }
     end
   end
@@ -44,7 +44,7 @@ class ExcosController < ApplicationController
     @exco.instructors.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @exco }
     end
   end
