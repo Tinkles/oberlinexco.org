@@ -8,8 +8,10 @@
     %th T number
     %th Admin
     %th
-    %th
-    %th
+    - if can? :update, User
+      %th
+    - if can? :delete, User
+      %th
   - @users.each do |user|
     %tr
       %td= user.email
@@ -17,5 +19,7 @@
       %td= user.t_number
       %td= user.admin
       %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete
+      - if can? :update, User
+        %td= link_to 'Edit', edit_user_path(user)
+      - if can? :delete, User
+        %td= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete
