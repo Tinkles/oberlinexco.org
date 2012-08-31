@@ -44,6 +44,8 @@
       .container.muted
         %ul
           %h5 © 2012 Oberlin Experimental College
+          %li email: exco@oberlin.edu;
+          %li office: Wilder 302
         %ul
           %h5 Admin
           -if can? :find, User
@@ -54,7 +56,7 @@
           -else
             %li= link_to "Log in", new_user_session_path
         %ul
-          %h5 Designed and maintained by
+          %h5 Contributors
           %li= link_to "Isaac Hollander McCreery", 'http://cs.oberlin.edu/~ihm'
           %li= link_to "Malcolm Balch-Crystal IV", 'http://malcolmbalchcrystal.com'
       / /container
