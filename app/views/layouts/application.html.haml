@@ -44,8 +44,8 @@
       .container.muted
         %ul
           %h5 © 2012 Oberlin Experimental College
-          %li email: exco@oberlin.edu;
-          %li office: Wilder 302
+          %li= link_to "exco@oberlin.edu", 'mailto:exco@oberlin.edu'
+          %li Wilder 302
         %ul
           %h5 Admin
           -if can? :find, User
