@@ -1,6 +1,9 @@
 class Exco < ActiveRecord::Base
 
-  attr_accessible :name, :course_number, :description, :enrollment_limit, :year, :term
+  attr_accessible :name, :course_number,
+                  # instructed_by is a string of instructor names who are not users
+                  :instructed_by,
+                  :description, :enrollment_limit, :year, :term
 
   has_and_belongs_to_many :instructors, class_name: 'User', join_table: 'excos_instructors'
   attr_accessible :instructors, :instructors_attributes

@@ -9,9 +9,7 @@
   = @exco.course_number
 %p
   %b Instructors:
-  %ul
-    - @exco.instructors.each do |i|
-      %li= i.name
+  = (@exco.instructors.map{|i| i.name} + (@exco.instructed_by.blank? ? [] :  [@exco.instructed_by])).join(", ")
 %p
   %b Description:
   = @exco.description

@@ -23,7 +23,7 @@
       %tr
         %td= exco.course_number
         %td= exco.name
-        %td= exco.instructors.map{|i| i.name}.join(", ")
+        %td= (exco.instructors.map{|i| i.name} + (exco.instructed_by.blank? ? [] :  [exco.instructed_by])).join(", ")
         %td= exco.enrollment_limit
         %td= link_to 'Show', exco
         - if can? :update, Exco

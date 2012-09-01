@@ -16,9 +16,14 @@
     %br/
     = f.number_field :course_number
   .field
-    = f.fields_for :instructors do |builder|
-      = render "instructor_fields", :f => builder
-    = link_to_add_fields "Add Instructor", f, :instructors
+    = f.label :instructed_by
+    %br/
+    = f.text_field :instructed_by
+  -# we're not using users linked to excos as instructors (yet!) ~ihm 1 September 2012
+    .field
+      = f.fields_for :instructors do |builder|
+        = render "instructor_fields", :f => builder
+      = link_to_add_fields "Add Instructor", f, :instructors
   .field
     = f.label :description
     %br/
