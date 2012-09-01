@@ -14,7 +14,6 @@
       %th Name
       %th Instructor
       %th Enrollment limit
-      %th
       - if can? :update, Exco
         %th
       - if can? :delete, Exco
@@ -22,10 +21,9 @@
     - excos.each do |exco|
       %tr
         %td= exco.course_number
-        %td= exco.name
+        %td= link_to exco.name, exco
         %td= (exco.instructors.map{|i| i.name} + (exco.instructed_by.blank? ? [] :  [exco.instructed_by])).join(", ")
         %td= exco.enrollment_limit
-        %td= link_to 'Show', exco
         - if can? :update, Exco
           %td= link_to 'Edit', edit_exco_path(exco)
         - if can? :delete, Exco

@@ -3,22 +3,20 @@
 
 %table.table.table-striped
   %tr
-    %th Email
     %th Name
+    %th Email
     %th T number
     %th Admin
-    %th
     - if can? :update, User
       %th
     - if can? :delete, User
       %th
   - @users.each do |user|
     %tr
+      %td= link_to user.name, user
       %td= user.email
-      %td= user.name
       %td= user.t_number
       %td= user.admin
-      %td= link_to 'Show', user
       - if can? :update, User
         %td= link_to 'Edit', edit_user_path(user)
       - if can? :delete, User
