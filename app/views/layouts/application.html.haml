@@ -30,7 +30,7 @@
               -if can? :find, User
                 %li= link_to "Users", users_path
             -if user_signed_in?
-              %ul.nav
+              %ul.nav.sign_out
                 %li= link_to "Log out", destroy_user_session_path, :method => :delete
     / /.navbar-fixed-top
     .content
@@ -45,7 +45,7 @@
         %ul
           %h5 © 2012 Oberlin Experimental College
           %li= link_to "exco@oberlin.edu", 'mailto:exco@oberlin.edu'
-          %li Wilder 302
+          %li= link_to "Wilder 302", 'http://new.oberlin.edu/office/student-union/'
         %ul
           %h5 Admin
           -if can? :find, User
@@ -55,7 +55,6 @@
             %li= link_to "Account settings", edit_user_registration_path
           -else
             %li= link_to "Log in", new_user_session_path
-        %ul
           %h5 Contributors
           %li= link_to "Isaac Hollander McCreery", 'http://cs.oberlin.edu/~ihm'
           %li= link_to "Malcolm Balch-Crystal IV", 'http://malcolmbalchcrystal.com'

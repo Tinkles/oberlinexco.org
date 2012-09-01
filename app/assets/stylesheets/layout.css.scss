@@ -1,0 +1,26 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar ul.nav.sign_out {
+  float: right;
+  margin-right: 0;
+}
+
+footer {
+  .container {
+    margin: 80px auto auto auto;
+    width: 400px;
+  }
+}
+
+footer ul {
+  width: 190px;
+  margin: 0px;
+  padding: 5px;
+  float: left;
+}
+
+footer li {
+  list-style-type: none;
+}

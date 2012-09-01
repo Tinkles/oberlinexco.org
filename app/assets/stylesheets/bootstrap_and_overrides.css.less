@@ -31,12 +31,10 @@ body {
 // Example:
 // @linkColor: #ff0000;
 
-@linkColor: #ff9999;
+@linkColor: @red;
 
-footer li {
-  list-style-type: none;
-}
-
-footer a {
-  color: #ffcccc;
+footer {
+  a {
+    color: lighten(@linkColor, 50%);
+  }
 }
