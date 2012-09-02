@@ -1,6 +1,6 @@
 class Exco < ActiveRecord::Base
 
-  attr_accessible :name, :course_number,
+  attr_accessible :name, :credits, :course_number,
                   # instructed_by is a string of instructor names who are not users
                   :instructed_by,
                   :description, :enrollment_limit, :year, :term
@@ -10,7 +10,8 @@ class Exco < ActiveRecord::Base
 
   TERMS = ['Fall', 'Spring']
 
-  validates_presence_of :name, :course_number, :enrollment_limit, :year, :term
+  validates_presence_of :name, :credits, :course_number, :enrollment_limit, :year, :term
+  validate :credits_is_positive
   validate :term_is_valid
   validate :name_is_unique_on_year_and_term
   validate :course_number_is_unique_on_year_and_term
@@ -19,6 +20,12 @@ class Exco < ActiveRecord::Base
 
   scope :by_offered, order("year DESC, term ASC")
   scope :by_course_number, order(:course_number)
+
+  def credits_is_positive
+    if self.credits
+      errors.add(:credits, 'must be positive') unless self.credits > 0
+    end
+  end
 
   def term_is_valid
     errors.add(:term, 'is not valid') unless TERMS.include? self.term

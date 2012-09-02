@@ -6,6 +6,7 @@ class ExcoTest < ActiveSupport::TestCase
 
     setup do
       @aikido_exco = Exco.new(name: "Aikido ExCo",
+                              credits: 1,
                               course_number: 1,
                               description: "Learn aikido.",
                               enrollment_limit: 16,
@@ -45,10 +46,31 @@ class ExcoTest < ActiveSupport::TestCase
       should "be invalid and have errors in all required fields" do
         assert @empty_exco.invalid?
         assert @empty_exco.errors[:name].any?
+        assert @empty_exco.errors[:credits].any?
         assert @empty_exco.errors[:course_number].any?
         assert @empty_exco.errors[:enrollment_limit].any?
         assert @empty_exco.errors[:year].any?
         assert @empty_exco.errors[:term].any?
+      end
+    end
+
+    context "an exco with a 0 credits" do
+      setup do
+        @aikido_exco.credits = 0
+      end
+      should "be invalid and have an error in the credits field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:credits].any?
+      end
+    end
+
+    context "an exco with a -1 credits" do
+      setup do
+        @aikido_exco.credits = -1
+      end
+      should "be invalid and have an error in the credits field" do
+        assert @aikido_exco.invalid?
+        assert @aikido_exco.errors[:credits].any?
       end
     end
 

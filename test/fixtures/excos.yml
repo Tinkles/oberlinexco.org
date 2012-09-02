@@ -2,6 +2,7 @@
 
 steel_drum_2011_spring:
   name: "Steel Drum ExCo"
+  credits: 1
   course_number: 70
   description: "Learn to play steel drums!"
   enrollment_limit: 12
@@ -11,6 +12,7 @@ steel_drum_2011_spring:
 
 sexco:
   name: "SexCo"
+  credits: 2
   course_number: 69
   description: "Learn all about sex, sex workers, STIs and STDs... and whatever else."
   enrollment_limit: 16
@@ -20,6 +22,7 @@ sexco:
 
 steel_drum:
   name: "Steel Drum ExCo"
+  credits: 1
   course_number: 70
   description: "Learn to play steel drums!"
   enrollment_limit: 12

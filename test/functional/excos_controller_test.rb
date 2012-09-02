@@ -52,7 +52,7 @@ class ExcosControllerTest < ActionController::TestCase
     context "creating an exco" do
       should "fail" do
         assert_no_difference('Exco.count') do
-          post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
+          post :create, exco: { name: 'SexCo II', credits: 2, course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
         end
         assert_redirected_to excos_path
       end
@@ -119,7 +119,7 @@ class ExcosControllerTest < ActionController::TestCase
     context "creating an exco" do
       should "succeed" do
         assert_difference('Exco.count') do
-          post :create, exco: { name: 'SexCo II', course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
+          post :create, exco: { name: 'SexCo II', credits: 2, course_number: 1, enrollment_limit: 16, year: 2012, term: 'Fall' }
         end
         assert_redirected_to exco_path(assigns(:exco))
       end
