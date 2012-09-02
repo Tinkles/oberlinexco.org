@@ -12,6 +12,7 @@
     %tr
       %th Course number
       %th Name
+      %th Credits
       %th Instructor
       %th Enrollment limit
       - if can? :update, Exco
@@ -22,6 +23,7 @@
       %tr
         %td= exco.course_number
         %td= link_to exco.name, exco
+        %td= exco.credits
         %td= (exco.instructors.map{|i| i.name} + (exco.instructed_by.blank? ? [] :  [exco.instructed_by])).join(", ")
         %td= exco.enrollment_limit
         - if can? :update, Exco

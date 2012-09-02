@@ -2,11 +2,14 @@
   %h1 ExCo
 
 %p
+  %b Course Number:
+  = @exco.course_number
+%p
   %b Name:
   = @exco.name
 %p
-  %b Course Number:
-  = @exco.course_number
+  %b Credits:
+  = @exco.credits
 %p
   %b Instructors:
   = (@exco.instructors.map{|i| i.name} + (@exco.instructed_by.blank? ? [] :  [@exco.instructed_by])).join(", ")
