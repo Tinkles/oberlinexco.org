@@ -1,36 +1,75 @@
 .page-header
   %h1 Apply to Teach
 
-%p
-  We're always looking for great students to teach great ExCos!  If you're interested, see the checklists below.
+.row
+  .well
+    %p
+      We're always looking for great students to teach great ExCos!  If you're
+      interested, the checklists outline what you need to turn in.
 
-%p
-  New course, new instructor needs to hand in: Course application, instructor application (one for each instructor), course syllabus, general recommendation, faculty recommendation, budget (if applicable)
+    %p
+      Please drop your application in hard-copy at our office.  For non-students,
+      the faculty recommendation is switched to another general recommendation.
+      All the forms are available for pick-up outside our office at Wilder 302. We
+      are more than happy to answer questions through email at
+      #{link_to 'oberlinexco.org', "mailto:oberlinexco.org" }.
 
-%p
-  New course, old instructor: Course application, course syllabus, instructor application, budget (if applicable)
+.row
+  .span6
+    %h3 New course
+    %dl
+      %dt New instructor
+      %dd
+        %ul
+          %li Course Syllabus
+          %li= link_to "New Course Application", 'new_course.pdf'
+          %li= link_to "Instructor Application", 'instructor_app.pdf'
+          %li= link_to "Faculty Recommendation", 'faculty_rec.pdf'
+          %li= link_to "General Recommendation", 'general_rec.pdf'
+          %li
+            = link_to "Budget Request", 'budget.pdf'
+            (if applicable)
 
-%p
-  Old course, new instructor (never taught before): Course renew application, course syllabus, instructor application, general recommendation, faculty recommendation, budget (if applicable)
+      %dt Old instructor
+      %dd
+        %ul
+          %li Course Syllabus
+          %li= link_to "New Course Application", 'new_course.pdf'
+          %li= link_to "Instructor Application", 'instructor_app.pdf'
 
-%p
-  Old course, old instructor (never taught this course before): Course renewal application, course syllabus, instructor application, budget (if applicable)
+  .span6
+    %h3 Old course
+    %dl
+      %dt New instructor (never taught before)
+      %dd
+        %ul
+          %li Course Syllabus
+          %li= link_to "Course Renewal Application", 'renewal.pdf'
+          %li= link_to "Instructor Application", 'instructor_app.pdf'
+          %li= link_to "Faculty Recommendation", 'faculty_rec.pdf'
+          %li= link_to "General Recommendation", 'general_rec.pdf'
+          %li
+            = link_to "Budget Request", 'budget.pdf'
+            (if applicable)
 
-%p
-  Old course, old instructor: Course renew application, course syllabus, budget (if applicable)
+      %dt
+        New instructor (never taught
+        %em this course
+        before)
+      %dd
+        %ul
+          %li Course Syllabus
+          %li= link_to "Course Renewal Application", 'renewal.pdf'
+          %li= link_to "Instructor Application", 'instructor_app.pdf'
+          %li
+            = link_to "Budget Request", 'budget.pdf'
+            (if applicable)
 
-%ul
-  %li= link_to "New Course Application", 'new_course.pdf'
-  %li= link_to "Course Renewal Application", 'renewal.pdf'
-  %li= link_to "Instructor Application", 'instructor_app.pdf'
-  %li= link_to "Faculty Recommendation", 'faculty_rec.pdf'
-  %li= link_to "General Recommendation", 'general_rec.pdf'
-  %li= link_to "Budget Request", 'budget.pdf'
-
-%p
-  Please drop your application in hard-copy at our office.
-
-  For non-students, the faculty recommendation is switched to another general recommendation.
-
-%p
-  All the forms are available for pick-up outside our office at Wilder 302. We are more than happy to answer questions through email at #{link_to 'oberlinexco.org', "mailto:oberlinexco.org" }.
+      %dt Old instructor
+      %dd
+        %ul
+          %li Course Syllabus
+          %li= link_to "Course Renewal Application", 'renewal.pdf'
+          %li
+            = link_to "Budget Request", 'budget.pdf'
+            (if applicable)
