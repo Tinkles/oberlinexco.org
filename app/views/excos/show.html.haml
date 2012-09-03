@@ -1,27 +1,21 @@
 .page-header
-  %h1 ExCo
+  %h1
+    = "#{@exco.course_number} - #{@exco.name}"
 
 %p
-  %b Course Number:
-  = @exco.course_number
+  Instructed by
+  %b= "#{(@exco.instructors.map{|i| i.name} + (@exco.instructed_by.blank? ? [] :  [@exco.instructed_by])).join(", ")},"
+  = "0-#{@exco.credits}"
+  credits
+
 %p
-  %b Name:
-  = @exco.name
+  %span.label
+    = @exco.term
+    = @exco.year
+
 %p
-  %b Credits:
-  = @exco.credits
-%p
-  %b Instructors:
-  = (@exco.instructors.map{|i| i.name} + (@exco.instructed_by.blank? ? [] :  [@exco.instructed_by])).join(", ")
-%p
-  %b Description:
   = @exco.description
+
 %p
-  %b Enrollment Limit:
-  = @exco.enrollment_limit
-%p
-  %b Year:
-  = @exco.year
-%p
-  %b Term:
-  = @exco.term
+  Enrollment Limit:
+  %b= @exco.enrollment_limit
