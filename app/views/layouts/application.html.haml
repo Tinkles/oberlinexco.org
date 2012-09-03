@@ -46,7 +46,6 @@
           %h5 © 2012 Oberlin Experimental College
           %li= link_to "exco@oberlin.edu", 'mailto:exco@oberlin.edu'
           %li= link_to "Wilder 302", 'http://new.oberlin.edu/office/student-union/'
-        %ul
           %h5 Admin
           -if can? :find, User
             %li= link_to "Users", users_path
@@ -55,9 +54,12 @@
             %li= link_to "Account settings", edit_user_registration_path
           -else
             %li= link_to "Log in", new_user_session_path
+        %ul
           %h5 Contributors
           %li= link_to "Isaac Hollander McCreery", 'http://cs.oberlin.edu/~ihm'
           %li= link_to "Malcolm Balch-Crystal IV", 'http://malcolmbalchcrystal.com'
+          %h5 Source
+          %li= link_to "GitHub", 'http://www.github.com/ihmccreery/oberlinexco.org'
       / /container
     / /footer
     / Javascripts
