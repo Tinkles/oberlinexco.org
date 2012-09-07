@@ -20,6 +20,9 @@ OberlinexcoOrg::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Configure Devise's mailer
+  config.action_mailer.default_url_options = { :host => 'oberlinexco.org' }
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
