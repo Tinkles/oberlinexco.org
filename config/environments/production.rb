@@ -23,6 +23,9 @@ OberlinexcoOrg::Application.configure do
   # Configure Devise's mailer
   config.action_mailer.default_url_options = { :host => 'oberlinexco.org' }
 
+  # Turn off auto TLS for e-mail
+  ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
