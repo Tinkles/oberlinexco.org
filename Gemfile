@@ -65,4 +65,6 @@ gem 'thin'
 gem 'haml'
 
 # Use Bootstrap for Javascript
+gem "therubyracer"
+gem "less-rails"
 gem 'twitter-bootstrap-rails'
